@@ -1,0 +1,73 @@
+.navbar {
+    display: flex;
+}
+
+.navbar .logo:hover {
+    outline: auto;
+    outline-color: rgb(255, 255, 255);
+}
+
+button {
+    background-color: rgba(99, 108, 116, 0);
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+
+button:hover {
+    outline: auto;
+    outline-color: rgb(255, 255, 255);
+}
+
+.button1 {
+    background-color: #FEBD69;
+    border-radius: 0px 5px 5px 0px;
+    cursor: pointer;
+}
+
+.button1:hover {
+    background-color: rgb(168, 130, 24);
+    outline: 0ch;
+    outline-color: rgba(240, 248, 255, 0);
+}
+
+.backtop{
+    background-color: #37475a;
+}
+
+.backtop:hover {
+    outline: 0ch;
+    background-color: #43566d;
+    transition: 0.1s;
+}
+.card{
+    border:none;
+}
+
+.active1{
+    background-image: linear-gradient(#ADECF1, rgb(255, 255, 255));
+}
+.active2{
+    background-image: linear-gradient(#006581, rgb(255, 255, 255));
+}
+.active3{
+    background-image: linear-gradient(#f1c6ad, rgb(255, 255, 255));
+}
+
+element.style {
+    color: black;
+    background-color: rgb(255, 255, 255);
+}
+
+@media only screen and (max-width: 1650px) {
+    .navbar {
+        font-size: .5em;
+        padding: 0;
+    }
+
+    input.search1 {
+        size: 10px;
+    }
+}

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset='utf-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <title>homepage</title>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+  <link rel='stylesheet' type='text/css' media='screen' href='style.css'>
+  <!-- Load from unpkg -->
+  <script src="https://unpkg.com/htmx.org@1.6.1">
+  </script>
+   {{turbo()}}
+</head>
+
+<body>
+  <nav class="navbar" style="background-color: #1d2022;">
+    <div class="container-fluid look">
+      <a class="logo" href="#">
+        <img src="{{logo}}" alt="logo" width="155" height="55">
+      </a>
+      <button class="deliverpin"
+        style="font-size: 10px; padding-left:
+          5px; padding-right: 5px; padding-top: 15px; background-color: #1d2022; border-color: rgba(255, 255, 255, 0);">
+        <p style="color: white; font-size: large;"> {{username}} </p>
+      </button>
+
+      <form class="d-flex" role="search" action="{{ url_for('dataset') }}" method="post">
+        <div class="dropdown opacity-100">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
+            data-bs-toggle="dropdown" aria-expanded="false" style="color: black;
+              background-color: rgb(255, 255,
+              255); border-radius: 5px 0px 0px 5px; height: 40px; font-size:
+              small ;">Stock</button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+        </div>
+        <input class="search1 d-inline-flex p-2 form-control" list="datalistOptions" name="stk" id="exampleDataList"
+          placeholder="Type to search..." size="150px" type="search" aria-label="Search" style="height: 40px;">
+        <datalist id="datalistOptions">
+          {% for vl in range(lnd) %}
+          <option name="stk" value="{{dlis[vl]}}">
+          {% endfor %}
+        </datalist>
+        <button class="button1" type="submit" style="height: 40px;"><a><img src="{{mag}}" width="30"
+              height="30"></button>
+      </form>
+
+      <button class="deliverpin"
+        style="font-size: 10px; background-color: #1d20; border-color: rgba(255, 255, 255, 0);"><a
+          style="color:white;font-size: large;">Profile</a></button>
+      <button class="return" style="font-size: 11px;background-color: #1d20; border-color: rgba(255, 255, 255, 0);"><a
+          style="color:white;font-size: large;">Settings</a></button>
+      <button class="cart" style="font-size: 22px;background-color: #1d20;border-color: rgba(255, 255, 255, 0);"><a
+          style="color:white;">Logout</a></button>
+    </div>
+  </nav>
+
+<form action="{{url_for('dataset')}}" method="POST">
+  <nav class="navbar-thin" style="background-color: #353a3d; padding-top:5px; padding-bottom: 5px;">
+  <div style="font-size: 13px; display: flexbox; flex-grow: 19; ">
+  {% for vl in range(nlen) %}
+  <button name="stk" type="submit" value="{{nlis[vl]}}" style="background-color: #353a3d;border-color: rgba(255, 255, 255, 0);">
+    <a style="color: white;">{{nlis[vl]}} </a></button>
+  {% endfor %}
+  </div>
+  </nav>
+</form>
+  
+
+
+  <div class="top-carousel" style="margin-left: 250px; display: flex; width:
+        1400px; z-index: -1;">
+    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+
+
+        <div class="carousel-item active active1">
+          <img src="{{aaaa}}" class="d-block
+                w-50" alt="..." style="align-items: center; opacity:line;
+                margin-left: 350px;">
+        </div>
+
+        <div class="carousel-item active2">
+          <img src="{{aaaa}}" class="d-block
+                w-50" alt="..." style="align-items: center; margin-left:
+                350px;">
+        </div>
+        <div class="carousel-item active3">
+          <img src="{{aaaa}}" class="d-block
+                w-50" alt="..." style="align-items: center; margin-left:
+                350px;">
+        </div>
+
+
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev"
+        style="filter: drop-shadow(0.10em 0.10em 0.1em black);">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next"
+        style="filter: drop-shadow(0.10em 0.10em 0.1em black);">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </div>
+  <div class="container-fluid" style="display: grid; grid-template-columns:
+  400px 450px 400px; grid-gap: 40px; align-items:flex; margin-top:
+  10px; padding-left: 300px; padding-bottom: 20px; padding-right: 270px; z-index: 1;">
+
+    <div style="width: 400px; height: 450px; background-color: #ffffff;">
+      <p style="margin-bottom:40px;">
+        <strong>Low Price 24Hr</strong>
+      </p>
+      <div>
+        <div class="row row-cols-1 row-cols-md-2 g-4" style="border: rgb(0, 0, 0);">
+          {% for vl in range(4) %}
+          <div class="col" style="padding: 0; margin-top:0; margin-bottom:10px">
+            <div class="card" style="width: 200px; height: 200px;">
+              <div class="card-body" style="width: 185px;">
+                <h5 class="card-title" value="{{v_l[vl]}}">{{ v_l[vl] }}</h5>
+                <h5 class="card-title" value="{{k_l[vl]}}">{{ k_l[vl] }}</h5>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+
+
+    <div style="width: 400px; height: 450px; background-color: #ffffff;">
+      <p style="margin-bottom:40px ;">
+        <strong>High Price 24Hr</strong>
+      </p>
+      <div>
+        <div class="row row-cols-1 row-cols-md-2 g-4">
+          {% for vl in range(4) %}
+          <div class="col" style="padding: 0; margin-top:0; margin-bottom:
+        10px">
+            <div class="card" style="width: 200px; height: 200px;">
+              <div class="card-body" style="width: 185px;">
+                <h5 class="card-title" value="{{v_h[vl]}}">{{ v_h[vl] }}</h5>
+                <h5 class="card-title" value="{{k_h[vl]}}">{{ k_h[vl] }}</h5>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="container-fluid" style="display: grid; grid-template-columns:
+        400px 450px 400px; grid-gap: 40px; align-items:flex; margin-top:
+        10px; padding-left: 300px; padding-bottom: 20px; padding-right: 270px; z-index: 1;">
+
+    <div style="width: 400px; height: 450px; background-color: #ffffff;">
+      <p style="margin-bottom:40px;">
+        <strong>24 hrs high Volume</strong>
+      </p>
+      <div>
+        <div class="row row-cols-1 row-cols-md-2 g-4" style="border: rgb(0, 0, 0);">
+          {% for vl in range(4) %}
+          <div class="col" style="padding: 0; margin-top:0; margin-bottom:
+                10px">
+            <div class="card" style="width: 200px; height: 200px;">
+              <div class="card-body" style="width: 185px;">
+                <h5 class="card-title" value="{{v_hh[vl]}}">{{ v_hh[vl] }}</h5>
+                <h5 class="card-title" value="{{k_hh[vl]}}">{{ k_hh[vl] }}</h5>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+
+
+    <div style="width: 400px; height: 450px; background-color: #ffffff;">
+      <p style="margin-bottom:40px ;">
+        <strong>24 hrs Low Volume</strong>
+      </p>
+      <div>
+        <div class="row row-cols-1 row-cols-md-2 g-4">
+          {% for vl in range(4) %}
+          <div class="col" style="padding: 0; margin-top:0; margin-bottom:
+              10px">
+            <div class="card" style="width: 200px; height: 200px;">
+              <div class="card-body" style="width: 185px;">
+                <h5 class="card-title" value="{{v_ll[vl]}}">{{ v_ll[vl] }}</h5>
+                <h5 class="card-title" value="{{k_ll[vl]}}">{{ k_ll[vl] }}</h5>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card border-light mb-3" style="left :65%; max-width: 500px; z-index: -1; bottom: 929px;">
+    <div class="card-body">
+        <ul class="list-group">
+            <div class="container text-center">
+                <div class="row">
+                      <ul class="list-group">
+                        <li class="list-group-item" value = "{{rlis[vl]}}" style = "font-weight:bold; padding:20px; ">{{rlis[0]}}   {%include 'load0.html'%} </li>
+                        <li class="list-group-item" value = "{{rlis[vl]}}" style = "font-weight:bold; padding:20px; ">{{rlis[1]}}   {%include 'load1.html'%} </li>
+                        <li class="list-group-item" value = "{{rlis[vl]}}" style = "font-weight:bold; padding:20px; ">{{rlis[2]}}   {%include 'load2.html'%} </li>
+                        <li class="list-group-item" value = "{{rlis[vl]}}" style = "font-weight:bold; padding:20px; ">{{rlis[3]}}   {%include 'load3.html'%} </li>
+                        <li class="list-group-item" value = "{{rlis[vl]}}" style = "font-weight:bold; padding:20px; ">{{rlis[4]}}   {%include 'load4.html'%} </li>
+                        <li class="list-group-item" value = "{{rlis[vl]}}" style = "font-weight:bold; padding:20px; ">{{rlis[5]}}   {%include 'load5.html'%} </li>                          
+                      </ul>                      
+                </div>
+              </div>
+        </ul>
+    </div>
+</div>
+
+
+  <button class="backtop" style=" width: 100%; background-color:#232f3e; border-color: #131a2200; ">
+    <p style="font-size: 11px; padding-top:11px; "><a style="color: white;">Back to Top</a></p>
+  </button>
+  <footer class="navbar f1" style="background-color: #232f3e; height: 140px;"></footer>
+  <footer class="navbar f2"
+    style="background-color: #232f3e; height: 140px;  border-top: 0.001em solid rgba(255, 255, 255, 0.151)"></footer>
+  <footer class="navbar f3" style="background-color: #131a22; height: 170px;"></footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
